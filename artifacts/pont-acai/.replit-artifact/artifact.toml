@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Pont Açaí"
+description = "Cardápio digital interativo para a Pont Açaí, com açaís, pizzas e lanches, carrinho de pedidos e envio do pedido completo pelo WhatsApp."
+version = "1.0.0"
+id = "artifacts/pont-acai"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22695
+
+[services.development]
+run = "pnpm --filter @workspace/pont-acai run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/pont-acai", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/pont-acai/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22695"
+BASE_PATH = "/"
