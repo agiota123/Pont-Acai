@@ -195,7 +195,7 @@ function App() {
   const sendWhatsApp = () => {
     const lines = cart.map((i) => `• ${i.quantity}x ${i.product.name}${i.extras.length ? ` | Adicionais: ${i.extras.map((e) => e.name).join(', ')}` : ''}${i.notes ? ` | Obs: ${i.notes}` : ''} — ${money((i.product.price + i.extras.reduce((s, e) => s + e.price, 0)) * i.quantity)}`).join('\n');
     const message = `Olá, Pont Açaí! Quero fazer um pedido:\n\n${lines}\n\nSubtotal: ${money(subtotal)}\nTotal: ${money(subtotal)}\n\nPode confirmar o pedido e o prazo de entrega?`;
-    window.open(`https://wa.me/5561991375677?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+    window.open(`https://wa.me/556191193991?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
   };
   const scrollMenu = () => document.getElementById('menu')?.scrollIntoView({ behavior:'smooth' });
 
